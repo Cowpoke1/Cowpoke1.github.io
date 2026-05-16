@@ -28488,3 +28488,10 @@ adagio.io, 1575, RESELLER
 indexexchange.com, 214183, RESELLER, 50b1c356f2c5c8fc
 pubnative.net, 1009966, RESELLER, d641df8625486a7b
 pubnative.net, 1009458, RESELLER, d641df8625486a7b
+adagio.io, 1054, RESELLER
+anzu.io, 6968c4bda0340c3bb11175aa, RESELLER
+lijit.com, 584539, RESELLER, fafdf38b16bf6b2b
+media.net, 8CUMM4JFW, RESELLER
+triplelift.com, 14699, RESELLER, 6c33edb13117fd86
+bidmachine.io, 200, RESELLER
+bold-win.com, 1145, RESELLER, 71746737d0bab951

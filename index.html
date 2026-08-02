@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
-<!-- saved from url=(0132)blob:https://5gkqlpvzjzpj5k5m3p3ldchrg68w6n403vwzqhmi2iiwgd8muc-h955308071.scf.usercontent.goog/00cb4628-877c-4b8b-b69f-7d40a560b5be -->
+<!DOCTYPE html>
+<!-- saved from url=(0073)file:///C:/Users/User/Desktop/MadStorm%20Games_files/index.html#portfolio -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MadStorm Games | Survival &amp; Simulation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="./index_files/css2" rel="stylesheet">
+    <link rel="stylesheet" href="./index_files/all.min.css">
     <style>
         :root {
             /* Frutiger Aero Brand Colors */
@@ -1783,6 +1783,82 @@
             transform: none;
             box-shadow: none;
         }
+        /* GLOBAL BG INJECT */
+
+        .global-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background-color: var(--c-bg);
+            transition: background-color 0.5s ease;
+        }
+
+        .global-bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 0.8s ease;
+            opacity: 0;
+        }
+
+        .global-bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: background 0.8s ease;
+        }
+
+        /* Default (Light) Mode Backgrounds */
+        .global-light { opacity: 1; }
+        .global-bg-overlay {
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.7) 0%, rgba(255,255,255,0.2) 5%, transparent 10%),
+                radial-gradient(circle at 80% 40%, rgba(255, 255, 255, 0.6) 0%, rgba(255,255,255,0.1) 8%, transparent 15%),
+                radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.7) 0%, rgba(255,255,255,0.3) 4%, transparent 8%),
+                radial-gradient(circle at 70% 10%, rgba(102, 204, 0, 0.15) 0%, transparent 30%),
+                radial-gradient(circle at 20% 70%, rgba(0, 204, 255, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(0, 136, 255, 0.15) 0%, transparent 40%),
+                linear-gradient(to bottom, rgba(208, 240, 255, 0.3), rgba(240, 251, 255, 0.45));
+        }
+
+        /* Dark Mode Backgrounds */
+        body:has(#theme-dark:checked) .global-bg { display: none !important; }
+
+          /* Starry Mode Backgrounds */
+        body:has(#theme-starry:checked) .global-bg { background-color: #020617; }
+        body:has(#theme-starry:checked) { color: #f8fafc; }
+        body:has(#theme-starry:checked) .global-light { opacity: 0; }
+        body:has(#theme-starry:checked) .global-starry { opacity: 1; }
+        body:has(#theme-starry:checked) .global-bg-overlay {
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(30, 58, 138, 0.6) 0%, transparent 40%),
+                radial-gradient(circle at 70% 60%, rgba(14, 165, 233, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(250, 204, 21, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(250, 204, 21, 0.2) 0%, transparent 30%),
+                linear-gradient(135deg, rgba(2, 6, 23, 0.4) 0%, rgba(30, 58, 138, 0.3) 50%, rgba(15, 23, 42, 0.5) 100%);
+        }
+        /* Hide old hero/values backgrounds in Light and Starry mode */
+        body:has(#theme-light:checked) .hero-bg,
+        body:has(#theme-light:checked) .hero-overlay,
+        body:has(#theme-light:checked) .values-bg-image,
+        body:has(#theme-light:checked) .values-animated-overlay,
+        body:has(#theme-starry:checked) .hero-bg,
+        body:has(#theme-starry:checked) .hero-overlay,
+        body:has(#theme-starry:checked) .values-bg-image,
+        body:has(#theme-starry:checked) .values-animated-overlay {
+            display: none !important;
+        }
+        /* END GLOBAL BG INJECT */
 </style>
 </head>
 <body>
@@ -1792,7 +1868,15 @@
     <input type="radio" name="theme" id="theme-dark" class="theme-toggle-input" aria-label="Dark Theme">
     <input type="radio" name="theme" id="theme-starry" class="theme-toggle-input" aria-label="Starry Theme">
 
-    <!-- Frutiger Aero Animated Bubbles / Dark Mode Fireflies / Starry Night Stars Layer -->
+    <!-- GLOBAL BG HTML INJECT -->
+<div class="global-bg" aria-hidden="true">
+        <div class="global-bg-layer global-light" style="background-image: url(&#39;https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/8FzgIKUYWyG6yVjneTV_BZ?authuser=0&#39;);" data-alt="A foggy, overcast forest with tall, shadowy pine trees fading into thick grey mist. Rusting chainlink fences and overgrown thorny vines create a sense of entrapment and abandonment. Muted, desaturated greens and greys dominate the color palette, evoking the eerie, suspenseful atmosphere of a daytime survival horror game. No text, signage, or lettering."></div>
+        
+        <div class="global-bg-layer global-starry" style="background-image: url(&#39;https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/9JRt0dPske_bvf1mquyOXr?authuser=0&#39;);" data-alt="A nightmarish, distorted night sky filled with unnatural, glowing purple and sickly yellow stars, swirling in a cosmic horror fashion over a silhouetted, jagged dead forest. Thick, textured impasto brushstrokes evoke a surreal, Lovecraftian survival horror aesthetic. Dark, unsettling, and otherworldly atmosphere. No text, signage, or lettering."></div>
+        <div class="global-bg-overlay"></div>
+    </div>
+<!-- END GLOBAL BG HTML INJECT -->
+      <!-- Frutiger Aero Animated Bubbles / Dark Mode Fireflies / Starry Night Stars Layer -->
     <div class="aero-bubbles" aria-hidden="true">
         <div class="bubble b1"></div>
         <div class="bubble b2"></div>
@@ -1825,7 +1909,7 @@
         <div class="container header-content">
             <div class="logo-wrap">
                 <div class="logo-icon">
-                    <img src="https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/atWxeADUVuHbqWUJYXm4JR?authuser=0" alt="MadStorm Games Logo">
+                    <img src="./index_files/atWxeADUVuHbqWUJYXm4JR" alt="MadStorm Games Logo">
                 </div>
                 <span class="logo-text">Mad<span class="text-accent">Storm</span></span>
             </div>
@@ -1839,14 +1923,14 @@
 
             <nav>
                 <div class="nav-links">
-                    <a href="#mechanics">Mechanics</a>
-                    <a href="#portfolio">Portfolio</a>
-                    <a href="#contacts">Contacts</a>
+                    <a href="file:///C:/Users/User/Desktop/MadStorm%20Games_files/index.html#mechanics">Mechanics</a>
+                    <a href="file:///C:/Users/User/Desktop/MadStorm%20Games_files/index.html#portfolio">Portfolio</a>
+                    <a href="file:///C:/Users/User/Desktop/MadStorm%20Games_files/index.html#contacts">Contacts</a>
                     <a href="https://cowpoke1.github.io/privacy.html" target="_blank">Privacy Policy</a>
                 </div>
                 <div class="social-links">
                     <a href="https://www.facebook.com/MadStormone" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="file:///C:/Users/User/Desktop/MadStorm%20Games_files/index.html#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 </div>
                 
                 <div class="theme-toggle-wrapper">
@@ -1877,7 +1961,7 @@
                 <div class="hero-content">
                     <h1>Immersive survival &amp; simulation for mobile.</h1>
                     <p class="hero-desc">MadStorm Games develops focused, mechanic-driven titles. We prioritize meticulous simulation details and atmosphere-heavy environments for players seeking challenging gameplay on the go.</p>
-                    <a href="#portfolio" class="btn">Examine Portfolio</a>
+                    <a href="file:///C:/Users/User/Desktop/MadStorm%20Games_files/index.html#portfolio" class="btn">Examine Portfolio</a>
                 </div>
             </div>
         </section>
@@ -1922,7 +2006,7 @@
                 <div class="games-grid">
 <article class="game-card">
                         <div class="game-img-wrap">
-                            <img src="https://play-lh.googleusercontent.com/jPVAiO6ro7bKjmj-jDEtGXVrE6Bg1uzLlRSQGcec_JQCnmJK0ucrinBXJbEd91hPFwAG2VSHFkmlsgYUldAvZVI=w600-h300-rw" alt="Redwood Falls gameplay screenshot">
+                            <img src="./index_files/unnamed.webp" alt="Redwood Falls gameplay screenshot">
                         </div>
                         <div class="game-content">
                             <h3>Redwood Falls</h3>
@@ -1935,7 +2019,7 @@
                     </article>
 <article class="game-card">
                         <div class="game-img-wrap">
-                            <img src="https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/bBCijZskNp2dnxoHSluO_o?authuser=0" alt="My Rusty Car gameplay showing a first-person view driving at night in the rain">
+                            <img src="./index_files/bBCijZskNp2dnxoHSluO_o" alt="My Rusty Car gameplay showing a first-person view driving at night in the rain">
                         </div>
                         <div class="game-content">
                             <h3>My Rusty Car</h3>
@@ -1948,7 +2032,7 @@
                     </article>
 <article class="game-card">
                         <div class="game-img-wrap">
-                            <img src="https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/8vsFLw7Ov-V5eGUi0piOiz?authuser=0" alt="Ocean Raft gameplay showing a wooden cabin built on a raft with a shark nearby">
+                            <img src="./index_files/8vsFLw7Ov-V5eGUi0piOiz" alt="Ocean Raft gameplay showing a wooden cabin built on a raft with a shark nearby">
                         </div>
                         <div class="game-content">
                             <h3>Ocean Raft</h3>
@@ -1961,20 +2045,20 @@
                     </article>
 <article class="game-card">
                         <div class="game-img-wrap">
-                            <img src="https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/9l-EeM2BCYPe7YhKbpmkCf?authuser=0" data-alt="Close-up of severely peeling, damp wallpaper over cracked, brutalist concrete in a dark, abandoned room. Eerie shadows stretch across the distressed texture, illuminated by a failing, flickering flashlight beam. Gritty, suspenseful atmosphere. No text." alt="Horror Escape atmospheric texture">
+                            <img src="./index_files/9l-EeM2BCYPe7YhKbpmkCf" data-alt="Close-up of severely peeling, damp wallpaper over cracked, brutalist concrete in a dark, abandoned room. Eerie shadows stretch across the distressed texture, illuminated by a failing, flickering flashlight beam. Gritty, suspenseful atmosphere. No text." alt="Horror Escape atmospheric texture">
                         </div>
                         <div class="game-content">
                             <h3>Horror Escape</h3>
                             <p>A horror-themed game where players explore an abandoned building after getting lost and crashing in a small village.</p>
                             <div class="store-buttons">
                                 <a href="https://play.google.com/store/apps/details?id=com.madstorm.lastnightshorrorsurvival" class="btn-store"><i class="fa-brands fa-google-play"></i></a>
-                                <a href="#" class="btn-store"><i class="fa-brands fa-apple"></i></a>
+                                <a href="file:///C:/Users/User/Desktop/MadStorm%20Games_files/index.html#" class="btn-store"><i class="fa-brands fa-apple"></i></a>
                             </div>
                         </div>
                     </article>
 <article class="game-card">
                         <div class="game-img-wrap">
-                            <img src="https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/aXqPMMicCHZ1O1jaVzL41A?authuser=0" alt="Ocean Survival gameplay showing a stone-walled workshop interior with a furnace and tools">
+                            <img src="./index_files/aXqPMMicCHZ1O1jaVzL41A" alt="Ocean Survival gameplay showing a stone-walled workshop interior with a furnace and tools">
                         </div>
                         <div class="game-content">
                             <h3>Ocean Survival</h3>
@@ -1987,7 +2071,7 @@
                     </article>
 <article class="game-card">
                         <div class="game-img-wrap">
-                            <img src="https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/boBK9uNTZfLcVS3RxWG_DG?authuser=0" alt="Nights at Pizzeria gameplay screenshot showing an eerie figure in a retro diner">
+                            <img src="./index_files/boBK9uNTZfLcVS3RxWG_DG" alt="Nights at Pizzeria gameplay screenshot showing an eerie figure in a retro diner">
                         </div>
                         <div class="game-content">
                             <h3>Nights at Pizzeria</h3>
@@ -2010,7 +2094,7 @@
                 <a href="mailto:madstormone@gmail.com" class="btn btn-primary">Send Email</a>
             </div>
 
-            <img src="https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/atWxeADUVuHbqWUJYXm4JR?authuser=0" alt="MadStorm Games Logo" class="footer-logo">
+            <img src="./index_files/atWxeADUVuHbqWUJYXm4JR" alt="MadStorm Games Logo" class="footer-logo">
             <p class="footer-text">
                 © MadStorm Games. All rights reserved.<br>
                 <a href="https://cowpoke1.github.io/index.html" target="_blank" rel="noopener noreferrer">Official Website</a>
@@ -2068,6 +2152,8 @@ div.ai-image-badge {
         });
     });
 </script>
+
+
+
+
 </body></html>
-
-

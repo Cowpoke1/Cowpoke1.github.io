@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<!-- saved from url=(0073)file:///C:/Users/User/Desktop/MadStorm%20Games_files/index.html#portfolio -->
+﻿<!DOCTYPE html>
+<!-- saved from url=(0132)blob:https://5gkqlpvzjzpj5k5m3p3ldchrg68w6n403vwzqhmi2iiwgd8muc-h955308071.scf.usercontent.goog/00cb4628-877c-4b8b-b69f-7d40a560b5be -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MadStorm Games | Survival &amp; Simulation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-    <link href="./index_files/css2" rel="stylesheet">
-    <link rel="stylesheet" href="./index_files/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
+        html { scroll-behavior: smooth; }
+
+:root {
             /* Frutiger Aero Brand Colors */
             --c-white: #ffffff;
             --c-light: #f0f9ff;
@@ -910,7 +912,9 @@
 
         /* Mobile Adjustments & Responsive Layout */
         @media (max-width: 991px) {
-            :root {
+            html { scroll-behavior: smooth; }
+
+:root {
                 --spacing-lg: 4rem;
                 --spacing-md: 2.5rem;
             }
@@ -1833,6 +1837,17 @@
 
         /* Dark Mode Backgrounds */
         body:has(#theme-dark:checked) .global-bg { display: none !important; }
+          body:has(#theme-dark:checked) { color: #e2e8f0; }
+          body:has(#theme-dark:checked) .global-light { opacity: 0; }
+          body:has(#theme-dark:checked) .global-dark { opacity: 1; }
+          body:has(#theme-dark:checked) .global-starry { opacity: 0; }
+          body:has(#theme-dark:checked) .global-bg-overlay {
+              background: 
+                  radial-gradient(circle at 10% 20%, rgba(30, 58, 138, 0.2) 0%, transparent 40%),
+                  radial-gradient(circle at 80% 40%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 40% 80%, rgba(56, 189, 248, 0.15) 0%, transparent 60%),
+                  linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(2, 6, 23, 0.5));
+          }
 
           /* Starry Mode Backgrounds */
         body:has(#theme-starry:checked) .global-bg { background-color: #020617; }
@@ -1855,9 +1870,8 @@
         body:has(#theme-starry:checked) .hero-bg,
         body:has(#theme-starry:checked) .hero-overlay,
         body:has(#theme-starry:checked) .values-bg-image,
-        body:has(#theme-starry:checked) .values-animated-overlay {
-            display: none !important;
-        }
+          body:has(#theme-starry:checked) .values-animated-overlay,
+          
         /* END GLOBAL BG INJECT */
 </style>
 </head>
@@ -1870,9 +1884,10 @@
 
     <!-- GLOBAL BG HTML INJECT -->
 <div class="global-bg" aria-hidden="true">
-        <div class="global-bg-layer global-light" style="background-image: url(&#39;https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/8FzgIKUYWyG6yVjneTV_BZ?authuser=0&#39;);" data-alt="A foggy, overcast forest with tall, shadowy pine trees fading into thick grey mist. Rusting chainlink fences and overgrown thorny vines create a sense of entrapment and abandonment. Muted, desaturated greens and greys dominate the color palette, evoking the eerie, suspenseful atmosphere of a daytime survival horror game. No text, signage, or lettering."></div>
+        <div class="global-bg-layer global-light" style="background-image: url(&#39;assets/8FzgIKUYWyG6yVjneTV_BZ.jpg&#39;);" data-alt="A foggy, overcast forest with tall, shadowy pine trees fading into thick grey mist. Rusting chainlink fences and overgrown thorny vines create a sense of entrapment and abandonment. Muted, desaturated greens and greys dominate the color palette, evoking the eerie, suspenseful atmosphere of a daytime survival horror game. No text, signage, or lettering."></div>
         
-        <div class="global-bg-layer global-starry" style="background-image: url(&#39;https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/9JRt0dPske_bvf1mquyOXr?authuser=0&#39;);" data-alt="A nightmarish, distorted night sky filled with unnatural, glowing purple and sickly yellow stars, swirling in a cosmic horror fashion over a silhouetted, jagged dead forest. Thick, textured impasto brushstrokes evoke a surreal, Lovecraftian survival horror aesthetic. Dark, unsettling, and otherworldly atmosphere. No text, signage, or lettering."></div>
+        <div class="global-bg-layer global-dark" style=""></div>
+          <div class="global-bg-layer global-starry" style="background-image: url(&#39;assets/9JRt0dPske_bvf1mquyOXr.jpg&#39;);" data-alt="A nightmarish, distorted night sky filled with unnatural, glowing purple and sickly yellow stars, swirling in a cosmic horror fashion over a silhouetted, jagged dead forest. Thick, textured impasto brushstrokes evoke a surreal, Lovecraftian survival horror aesthetic. Dark, unsettling, and otherworldly atmosphere. No text, signage, or lettering."></div>
         <div class="global-bg-overlay"></div>
     </div>
 <!-- END GLOBAL BG HTML INJECT -->
@@ -1909,7 +1924,7 @@
         <div class="container header-content">
             <div class="logo-wrap">
                 <div class="logo-icon">
-                    <img src="./index_files/atWxeADUVuHbqWUJYXm4JR" alt="MadStorm Games Logo">
+                    <img src="assets/atWxeADUVuHbqWUJYXm4JR.jpg" alt="MadStorm Games Logo">
                 </div>
                 <span class="logo-text">Mad<span class="text-accent">Storm</span></span>
             </div>
@@ -1923,14 +1938,14 @@
 
             <nav>
                 <div class="nav-links">
-                    <a href="file:///C:/Users/User/Desktop/MadStorm%20Games_files/index.html#mechanics">Mechanics</a>
-                    <a href="file:///C:/Users/User/Desktop/MadStorm%20Games_files/index.html#portfolio">Portfolio</a>
-                    <a href="file:///C:/Users/User/Desktop/MadStorm%20Games_files/index.html#contacts">Contacts</a>
+                    <a href="#mechanics">Mechanics</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#contacts">Contacts</a>
                     <a href="https://cowpoke1.github.io/privacy.html" target="_blank">Privacy Policy</a>
                 </div>
                 <div class="social-links">
                     <a href="https://www.facebook.com/MadStormone" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="file:///C:/Users/User/Desktop/MadStorm%20Games_files/index.html#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                 </div>
                 
                 <div class="theme-toggle-wrapper">
@@ -1952,24 +1967,24 @@
 
     <main>
         <section class="hero">
-            <div class="hero-bg hero-bg-light" style="background-image: url(&#39;https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/bH38QDQQb8154CDUGB1k20?authuser=0&#39;); background-size: cover; background-position: center;" data-alt="A foggy, overcast forest with tall, shadowy pine trees fading into thick grey mist. Rusting chainlink fences and overgrown thorny vines create a sense of entrapment and abandonment. Muted, desaturated greens and greys dominate the color palette, evoking the eerie, suspenseful atmosphere of a daytime survival horror game. No text, signage, or lettering."></div>
-            <div class="hero-bg hero-bg-dark" style="background-image: url(&#39;https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/8WzXeLJX6tb4het_O94k2i?authuser=0&#39;); background-size: cover; background-position: center;" data-alt="A pitch-black room illuminated only by the harsh, narrow beam of a dying flashlight cutting through swirling dust motes. Splattered dark stains on cracked, decaying concrete walls suggest a grim history. The lighting is high contrast with deep, enveloping shadows, perfectly capturing a terrifying, claustrophobic nighttime survival horror aesthetic. No text, signage, or lettering."></div>
-            <div class="hero-bg hero-bg-starry" style="background-image: url(&#39;https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/8BUEbQ5ZhrcapTLXkYU4zH?authuser=0&#39;); background-size: cover; background-position: center;" data-alt="Thick impasto oil painting in the style of Van Gogh&#39;s Starry Night, swirling deep blue and cyan night sky with glowing yellow stars, dark twisting silhouettes of trees in the foreground, highly textured brushstrokes, expressive, magical atmosphere. No text, signage, or lettering."></div>
+            <div class="hero-bg hero-bg-light" style="background-image: url(&#39;assets/bH38QDQQb8154CDUGB1k20.jpg&#39;); background-size: cover; background-position: center;" data-alt="A foggy, overcast forest with tall, shadowy pine trees fading into thick grey mist. Rusting chainlink fences and overgrown thorny vines create a sense of entrapment and abandonment. Muted, desaturated greens and greys dominate the color palette, evoking the eerie, suspenseful atmosphere of a daytime survival horror game. No text, signage, or lettering."></div>
+            <div class="hero-bg hero-bg-dark" style="background-image: url(&#39;assets/dark-bg.jpg&#39;); background-size: cover; background-position: center;" data-alt="A pitch-black room illuminated only by the harsh, narrow beam of a dying flashlight cutting through swirling dust motes. Splattered dark stains on cracked, decaying concrete walls suggest a grim history. The lighting is high contrast with deep, enveloping shadows, perfectly capturing a terrifying, claustrophobic nighttime survival horror aesthetic. No text, signage, or lettering."></div>
+            <div class="hero-bg hero-bg-starry" style="background-image: url(&#39;assets/8BUEbQ5ZhrcapTLXkYU4zH.jpg&#39;); background-size: cover; background-position: center;" data-alt="Thick impasto oil painting in the style of Van Gogh&#39;s Starry Night, swirling deep blue and cyan night sky with glowing yellow stars, dark twisting silhouettes of trees in the foreground, highly textured brushstrokes, expressive, magical atmosphere. No text, signage, or lettering."></div>
             <div class="hero-overlay"></div>
             
             <div class="container">
                 <div class="hero-content">
                     <h1>Immersive survival &amp; simulation for mobile.</h1>
                     <p class="hero-desc">MadStorm Games develops focused, mechanic-driven titles. We prioritize meticulous simulation details and atmosphere-heavy environments for players seeking challenging gameplay on the go.</p>
-                    <a href="file:///C:/Users/User/Desktop/MadStorm%20Games_files/index.html#portfolio" class="btn">Examine Portfolio</a>
+                    <a href="#portfolio" class="btn">Examine Portfolio</a>
                 </div>
             </div>
         </section>
 
         <section id="mechanics" class="values-section section-pad">
-            <div class="values-bg-image values-bg-light" style="background-image: url(&#39;https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/8fU9tFKmhxC2u_0nuBg4F9?authuser=0&#39;); background-size: cover; background-position: center;" data-alt="Close-up of weathered, splintered wooden floorboards scattered with rusted nails, spent brass shell casings, and torn medical bandages. The textures are gritty and hyper-realistic, illuminated by pale, diffuse daylight filtering through dirty glass. The composition highlights scarcity and desperation typical of a survival game&#39;s resource management. No text, signage, or lettering."></div>
-            <div class="values-bg-image values-bg-dark" style="background-image: url(&#39;https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/bPzx-rciyA25zRVSP1tOa7?authuser=0&#39;); background-size: cover; background-position: center;" data-alt="A rusted, blood-smeared metal control panel with flickering, broken analog dials and exposed, sparking wires. Deep crimson emergency lights cast long, distorted shadows across the scratched metallic surfaces. The atmosphere is tense, industrial, and deeply unsettling, matching a classic sci-fi or industrial horror survival setting. No text, signage, or lettering."></div>
-            <div class="values-bg-image values-bg-starry" style="background-image: url(&#39;https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/aKn23rErXf2eqH1zeI6kgL?authuser=0&#39;); background-size: cover; background-position: center;" data-alt="Abstract impasto oil painting in the style of Van Gogh, swirling patterns of deep navy blue, vibrant yellow, and bright cyan, thick expressive brushstrokes, dynamic and chaotic yet harmonious texture, reminiscent of a turbulent night sky. No text, signage, or lettering."></div>
+            <div class="values-bg-image values-bg-light" style="background-image: url(&#39;assets/8fU9tFKmhxC2u_0nuBg4F9.jpg&#39;); background-size: cover; background-position: center;" data-alt="Close-up of weathered, splintered wooden floorboards scattered with rusted nails, spent brass shell casings, and torn medical bandages. The textures are gritty and hyper-realistic, illuminated by pale, diffuse daylight filtering through dirty glass. The composition highlights scarcity and desperation typical of a survival game&#39;s resource management. No text, signage, or lettering."></div>
+            <div class="values-bg-image values-bg-dark" style="background-image: url(&#39;assets/dark-bg.jpg&#39;); background-size: cover; background-position: center;" data-alt="A rusted, blood-smeared metal control panel with flickering, broken analog dials and exposed, sparking wires. Deep crimson emergency lights cast long, distorted shadows across the scratched metallic surfaces. The atmosphere is tense, industrial, and deeply unsettling, matching a classic sci-fi or industrial horror survival setting. No text, signage, or lettering."></div>
+            <div class="values-bg-image values-bg-starry" style="background-image: url(&#39;assets/aKn23rErXf2eqH1zeI6kgL.jpg&#39;); background-size: cover; background-position: center;" data-alt="Abstract impasto oil painting in the style of Van Gogh, swirling patterns of deep navy blue, vibrant yellow, and bright cyan, thick expressive brushstrokes, dynamic and chaotic yet harmonious texture, reminiscent of a turbulent night sky. No text, signage, or lettering."></div>
             <div class="values-animated-overlay"></div>
             
             <div class="container">
@@ -2006,7 +2021,7 @@
                 <div class="games-grid">
 <article class="game-card">
                         <div class="game-img-wrap">
-                            <img src="./index_files/unnamed.webp" alt="Redwood Falls gameplay screenshot">
+                            <img src="https://play-lh.googleusercontent.com/jPVAiO6ro7bKjmj-jDEtGXVrE6Bg1uzLlRSQGcec_JQCnmJK0ucrinBXJbEd91hPFwAG2VSHFkmlsgYUldAvZVI=w600-h300-rw" alt="Redwood Falls gameplay screenshot">
                         </div>
                         <div class="game-content">
                             <h3>Redwood Falls</h3>
@@ -2019,7 +2034,7 @@
                     </article>
 <article class="game-card">
                         <div class="game-img-wrap">
-                            <img src="./index_files/bBCijZskNp2dnxoHSluO_o" alt="My Rusty Car gameplay showing a first-person view driving at night in the rain">
+                            <img src="assets/bBCijZskNp2dnxoHSluO_o.jpg" alt="My Rusty Car gameplay showing a first-person view driving at night in the rain">
                         </div>
                         <div class="game-content">
                             <h3>My Rusty Car</h3>
@@ -2032,7 +2047,7 @@
                     </article>
 <article class="game-card">
                         <div class="game-img-wrap">
-                            <img src="./index_files/8vsFLw7Ov-V5eGUi0piOiz" alt="Ocean Raft gameplay showing a wooden cabin built on a raft with a shark nearby">
+                            <img src="assets/8vsFLw7Ov-V5eGUi0piOiz.jpg" alt="Ocean Raft gameplay showing a wooden cabin built on a raft with a shark nearby">
                         </div>
                         <div class="game-content">
                             <h3>Ocean Raft</h3>
@@ -2045,20 +2060,20 @@
                     </article>
 <article class="game-card">
                         <div class="game-img-wrap">
-                            <img src="./index_files/9l-EeM2BCYPe7YhKbpmkCf" data-alt="Close-up of severely peeling, damp wallpaper over cracked, brutalist concrete in a dark, abandoned room. Eerie shadows stretch across the distressed texture, illuminated by a failing, flickering flashlight beam. Gritty, suspenseful atmosphere. No text." alt="Horror Escape atmospheric texture">
+                            <img src="assets/9l-EeM2BCYPe7YhKbpmkCf.jpg" data-alt="Close-up of severely peeling, damp wallpaper over cracked, brutalist concrete in a dark, abandoned room. Eerie shadows stretch across the distressed texture, illuminated by a failing, flickering flashlight beam. Gritty, suspenseful atmosphere. No text." alt="Horror Escape atmospheric texture">
                         </div>
                         <div class="game-content">
                             <h3>Horror Escape</h3>
                             <p>A horror-themed game where players explore an abandoned building after getting lost and crashing in a small village.</p>
                             <div class="store-buttons">
                                 <a href="https://play.google.com/store/apps/details?id=com.madstorm.lastnightshorrorsurvival" class="btn-store"><i class="fa-brands fa-google-play"></i></a>
-                                <a href="file:///C:/Users/User/Desktop/MadStorm%20Games_files/index.html#" class="btn-store"><i class="fa-brands fa-apple"></i></a>
+                                <a href="#" class="btn-store"><i class="fa-brands fa-apple"></i></a>
                             </div>
                         </div>
                     </article>
 <article class="game-card">
                         <div class="game-img-wrap">
-                            <img src="./index_files/aXqPMMicCHZ1O1jaVzL41A" alt="Ocean Survival gameplay showing a stone-walled workshop interior with a furnace and tools">
+                            <img src="assets/aXqPMMicCHZ1O1jaVzL41A.jpg" alt="Ocean Survival gameplay showing a stone-walled workshop interior with a furnace and tools">
                         </div>
                         <div class="game-content">
                             <h3>Ocean Survival</h3>
@@ -2071,7 +2086,7 @@
                     </article>
 <article class="game-card">
                         <div class="game-img-wrap">
-                            <img src="./index_files/boBK9uNTZfLcVS3RxWG_DG" alt="Nights at Pizzeria gameplay screenshot showing an eerie figure in a retro diner">
+                            <img src="assets/boBK9uNTZfLcVS3RxWG_DG.jpg" alt="Nights at Pizzeria gameplay screenshot showing an eerie figure in a retro diner">
                         </div>
                         <div class="game-content">
                             <h3>Nights at Pizzeria</h3>
@@ -2094,7 +2109,7 @@
                 <a href="mailto:madstormone@gmail.com" class="btn btn-primary">Send Email</a>
             </div>
 
-            <img src="./index_files/atWxeADUVuHbqWUJYXm4JR" alt="MadStorm Games Logo" class="footer-logo">
+            <img src="assets/atWxeADUVuHbqWUJYXm4JR.jpg" alt="MadStorm Games Logo" class="footer-logo">
             <p class="footer-text">
                 © MadStorm Games. All rights reserved.<br>
                 <a href="https://cowpoke1.github.io/index.html" target="_blank" rel="noopener noreferrer">Official Website</a>
@@ -2152,8 +2167,14 @@ div.ai-image-badge {
         });
     });
 </script>
-
-
-
-
 </body></html>
+
+
+
+
+
+
+
+
+
+

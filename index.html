@@ -1,173 +1,815 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>MadStorm Games</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/x-icon" href="icon.jpeg">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<script src="js/bootstrap.min.js"></script>
+<!-- saved from url=(0132)blob:https://55yhb7844tgv8phc5pwqev06xkjxd5d5dj5c5rsul5dzggb6lr-h955308071.scf.usercontent.goog/7a5da275-1182-4dfc-99da-266b634bc637 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MadStorm Games | Survival &amp; Simulation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Brand Colors */
+            --c-white: #ffffff;
+            --c-light: #f8f9fa;
+            --c-blue: #0d6efd;
+            --c-green: #198754;
+            --c-dark: #212529;
+            
+            /* Structural Colors */
+            --c-bg: var(--c-dark);
+            --c-text-main: var(--c-light);
+            --c-text-muted: #adb5bd;
+            --c-grid-line: rgba(255, 255, 255, 0.1);
+            --c-overlay: rgba(33, 37, 41, 0.85);
+            
+            /* Typography */
+            --font-main: 'Roboto', sans-serif;
+            
+            /* Layout */
+            --header-height: 80px;
+            --container-w: 1200px;
+            --spacing-lg: 6rem;
+            --spacing-md: 3rem;
+            --spacing-sm: 1.5rem;
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--header-height);
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--c-bg);
+            color: var(--c-text-main);
+            line-height: 1.6;
+            padding-top: var(--header-height);
+            
+            /* New cool atmospheric background */
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(13, 110, 253, 0.08), transparent 30%),
+                radial-gradient(circle at 85% 30%, rgba(25, 135, 84, 0.05), transparent 30%);
+            background-attachment: fixed;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            color: var(--c-white);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--spacing-md);
+            border-left: 4px solid var(--c-blue);
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--c-white);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        a {
+            color: var(--c-light);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--c-blue);
+        }
+
+        /* Layout Helpers */
+        .container {
+            max-width: var(--container-w);
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        .section-pad {
+            padding: var(--spacing-lg) 0;
+            position: relative;
+        }
+
+        /* Utilitarian Elements */
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--c-white);
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--c-grid-line);
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--c-blue);
+            border-color: var(--c-blue);
+            color: var(--c-white);
+        }
+
+        .btn-primary {
+            background-color: var(--c-green);
+            border-color: var(--c-green);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--c-white);
+            color: var(--c-dark);
+            border-color: var(--c-white);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: rgba(33, 37, 41, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--c-grid-line);
+            z-index: 300;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+        }
+
+        .logo-icon {
+            position: relative;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2;
+            position: relative;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: var(--c-blue);
+            filter: blur(12px);
+            opacity: 0;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            z-index: 1;
+        }
+
+        .logo-wrap:hover .logo-icon img {
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 8px 25px rgba(13, 110, 253, 0.5);
+        }
+
+        .logo-wrap:hover .logo-icon::before {
+            opacity: 0.6;
+            transform: translate(-50%, -50%) scale(1.3);
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--c-light);
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .logo-text .text-accent {
+            color: var(--c-blue);
+            position: relative;
+            transition: text-shadow 0.3s ease;
+        }
+
+        .logo-text .text-accent::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--c-blue);
+            box-shadow: 0 0 8px var(--c-blue);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+
+        .logo-wrap:hover .logo-text {
+            color: var(--c-white);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .logo-wrap:hover .logo-text .text-accent {
+            text-shadow: 0 0 15px rgba(13, 110, 253, 0.6);
+        }
+
+        .logo-wrap:hover .logo-text .text-accent::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            border-left: 1px solid var(--c-grid-line);
+            padding-left: 1.5rem;
+        }
+
+        .social-links a {
+            font-size: 1.1rem;
+            color: var(--c-light);
+            transition: color 0.2s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--c-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: calc(90vh - var(--header-height));
+            display: flex;
+            align-items: center;
+            position: relative;
+            background-color: var(--c-dark);
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(33, 37, 41, 0.95) 0%, rgba(33, 37, 41, 0.4) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+        }
+
+        .hero-desc {
+            font-size: 1.25rem;
+            color: var(--c-text-muted);
+            margin-bottom: var(--spacing-md);
+            border-left: 2px solid var(--c-green);
+            padding-left: 1rem;
+        }
+
+        /* Core Values / Mechanics */
+        .values-section {
+            background-color: var(--c-bg);
+            border-top: 1px solid var(--c-grid-line);
+            border-bottom: 1px solid var(--c-grid-line);
+            position: relative;
+        }
+        
+        .values-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .values-animated-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(33, 37, 41, 0.95) 0%,
+                rgba(13, 110, 253, 0.2) 33%,
+                rgba(33, 37, 41, 0.95) 66%,
+                rgba(25, 135, 84, 0.15) 100%
+            );
+            background-size: 300% 300%;
+            animation: mechOverlayPan 12s ease-in-out infinite alternate;
+            z-index: 1;
+        }
+
+        @keyframes mechOverlayPan {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        
+        .values-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--c-grid-line);
+        }
+
+        .value-card {
+            background-color: rgba(33, 37, 41, 0.85);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            padding: var(--spacing-md) var(--spacing-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .value-card:hover {
+            background-color: rgba(33, 37, 41, 0.95);
+            transform: translateY(-5px);
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-bottom: 2px solid var(--c-blue);
+        }
+
+        .value-num {
+            font-size: 0.8rem;
+            color: var(--c-blue);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Portfolio / Games */
+        .games-section {
+            background-color: var(--c-bg);
+            position: relative;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .game-card {
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--c-grid-line);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .game-img-wrap {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #000;
+        }
+
+        .game-img-wrap img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .game-content {
+            padding: var(--spacing-sm);
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .game-content h3 {
+            color: var(--c-white);
+            margin-bottom: 0.5rem;
+        }
+
+        .game-content p {
+            color: var(--c-text-muted);
+            margin-bottom: 0;
+            flex-grow: 1;
+        }
+
+        /* App Store Buttons */
+        .store-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .btn-store {
+            flex: 1;
+            display: inline-block;
+            background-color: transparent;
+            color: var(--c-white);
+            padding: 0.5rem;
+            border: 1px solid var(--c-grid-line);
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-store:hover {
+            background-color: var(--c-blue);
+            border-color: var(--c-blue);
+            color: var(--c-white);
+        }
+
+        /* Desktop Grid Layout for Games to avoid orphans */
+        @media (min-width: 768px) {
+            .games-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .game-card:nth-child(5) {
+                grid-column: span 2;
+                flex-direction: row;
+            }
+            .game-card:nth-child(5) .game-img-wrap {
+                width: 60%;
+                padding-top: 0;
+            }
+            .game-card:nth-child(5) .game-content {
+                width: 40%;
+                justify-content: center;
+                padding: var(--spacing-md);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #121416;
+            border-top: 1px solid var(--c-grid-line);
+            padding: var(--spacing-lg) 0 var(--spacing-md) 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--c-grid-line);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .contact-cta h2 {
+            margin-bottom: 0;
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .footer-logo {
+            width: 32px;
+            height: 32px;
+            filter: grayscale(100%) opacity(0.5);
+        }
+
+        .footer-text {
+            color: var(--c-text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 991px) {
+            .nav-links, .social-links {
+                display: none;
+            }
+            .hero {
+                align-items: flex-start;
+                padding-top: var(--spacing-lg);
+            }
+            .game-card:nth-child(5) {
+                flex-direction: column;
+            }
+            .game-card:nth-child(5) .game-img-wrap {
+                width: 100%;
+                padding-top: 56.25%;
+            }
+            .game-card:nth-child(5) .game-content {
+                width: 100%;
+                padding: var(--spacing-sm);
+            }
+        }
+    </style>
 </head>
 <body>
-	<div class="container">
-		<!-- Navbar -->
-		<nav class="navbar navbar-expand-sm border-bottom mb-3 mb-sm-4">
-			<div class="container">
-				<a class="navbar-brand d-sm-none" href="#">
-					<img src="favicon.svg" alt="Logo" width="32" height="32">
-				</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarScroll">
-					<ul class="navbar-nav">
-						<li class="nav-item active d-none d-sm-flex">
-							<a class="nav-link" href="#">Home</a>
-						</li>
-						<li class="nav-item active d-none d-sm-flex">
-							<a class="nav-link" href="privacy.html">Privacy Policy</a>
-						</li>
-						<li class="nav-item d-sm-none">
 
-							<a class="nav-link" href="https://www.facebook.com/MadStormone" target="_blank">Facebook</a>
-						</li>
-					</ul>
-				</div>
-				<ul class="nav navbar-nav navbar-right d-none d-sm-flex">
-					<li>
-						<a href="https://www.facebook.com/MadStormone" class="nav-link" target="_blank">
+    <header>
+        <div class="container header-content">
+            <div class="logo-wrap">
+                <div class="logo-icon">
+                    <img src="https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/atWxeADUVuHbqWUJYXm4JR?authuser=0" alt="MadStorm Games Logo">
+                </div>
+                <span class="logo-text">Mad<span class="text-accent">Storm</span></span>
+            </div>
+            <nav>
+                <div class="nav-links">
+                    <a href="blob:https://55yhb7844tgv8phc5pwqev06xkjxd5d5dj5c5rsul5dzggb6lr-h955308071.scf.usercontent.goog/7a5da275-1182-4dfc-99da-266b634bc637#mechanics">Mechanics</a>
+                    <a href="blob:https://55yhb7844tgv8phc5pwqev06xkjxd5d5dj5c5rsul5dzggb6lr-h955308071.scf.usercontent.goog/7a5da275-1182-4dfc-99da-266b634bc637#portfolio">Portfolio</a>
+                    <a href="blob:https://55yhb7844tgv8phc5pwqev06xkjxd5d5dj5c5rsul5dzggb6lr-h955308071.scf.usercontent.goog/7a5da275-1182-4dfc-99da-266b634bc637#contacts">Contacts</a>
+                    <a href="https://cowpoke1.github.io/privacy.html" target="_blank">Privacy Policy</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/MadStormone" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="blob:https://55yhb7844tgv8phc5pwqev06xkjxd5d5dj5c5rsul5dzggb6lr-h955308071.scf.usercontent.goog/7a5da275-1182-4dfc-99da-266b634bc637#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <a href="https://play.google.com/store/apps/dev?id=4654682304069795192" target="_blank" class="btn btn-primary">Google Play</a>
+            </nav>
+        </div>
+    </header>
 
-							<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-							<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-		<!-- Jumbotron -->
-		<div class="p-3 p-sm-4 bg-body-tertiary rounded-4">
-			<h1 class="display-5 fw-bold">MadStorm Games</h1>
-			<p class="fs-4"></p>
-			<p class="fs-5">
-			</p>
-			<a class="btn btn-primary btn-lg mt-2 icon-link icon-link-hover" href="mailto:madstormone@gmail.com" role="button" target="_blank">
-				Contact me
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-					<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-				</svg>
-			</a>
-		</div>
-		<!-- Content -->
-		<div class="row align-items-md-stretch mt-3 mt-sm-4">
+    <main>
+        <section class="hero">
+            <div class="hero-bg" style="background-image: url(&#39;https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/8WzXeLJX6tb4het_O94k2i?authuser=0&#39;); background-size: cover; background-position: center;" data-alt="A gritty, cinematic survival horror environment. A dark, abandoned industrial facility illuminated by flickering, cold blue emergency lights. Thick fog rolling over rusted metal surfaces. Suspenseful, highly detailed, moody atmosphere. No text or lettering."></div>
+            <div class="hero-overlay"></div>
+            
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Immersive survival &amp; simulation for mobile.</h1>
+                    <p class="hero-desc">MadStorm Games develops focused, mechanic-driven titles. We prioritize meticulous simulation details and atmosphere-heavy environments for players seeking challenging gameplay on the go.</p>
+                    <a href="blob:https://55yhb7844tgv8phc5pwqev06xkjxd5d5dj5c5rsul5dzggb6lr-h955308071.scf.usercontent.goog/7a5da275-1182-4dfc-99da-266b634bc637#portfolio" class="btn">Examine Portfolio</a>
+                </div>
+            </div>
+        </section>
 
-			<div class="col-md-6 mb-3 mb-sm-4">
-				<div class="card border overflow-hidden bg-body-tertiary rounded-4 h-100">
-					<img src="img/five.png" class="card-img-top" alt="Color Picker logo">
-					<div class="p-3 p-sm-4">
-						<h2>Nigths at Pizzeria</h2>
-						<p>Your task is to survive these nights, fighting off the attacks of monsters. Hold out until 7 am. Use security doors, turn on the lights, and watch out for security cameras. You can delay monsters as soon as you see them on the monitor.</p>
+        <section id="mechanics" class="values-section section-pad">
+            <div class="values-bg-image" style="background-image: url(&#39;https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/aKn23rErXf2eqH1zeI6kgL?authuser=0&#39;); background-size: cover; background-position: center;" data-alt="Dark, atmospheric metal textures with subtle glowing embers and cracked concrete. Intense, moody survival game environment detail. No text or lettering."></div>
+            <div class="values-animated-overlay"></div>
+            
+            <div class="container">
+                <h2>Core Mechanics</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <span class="value-num">01</span>
+                        <h3>Survival Gameplay</h3>
+                        <p>Unforgiving environments where every decision impacts longevity. Master the elements to endure.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-num">02</span>
+                        <h3>Immersive Simulation</h3>
+                        <p>Meticulous attention to functional details. Interact with realistic systems driving the world forward.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-num">03</span>
+                        <h3>Resource Management</h3>
+                        <p>Scavenge, optimize, and allocate limited supplies. Scarcity dictates the path forward.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-num">04</span>
+                        <h3>Strategic Planning</h3>
+                        <p>Analyze threats and prepare defenses. Instinct alone is insufficient; foresight is required.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-						<a class="btn btn-success btn-lg mt-2 icon-link icon-link-hover" href="https://play.google.com/store/apps/details?id=com.madstorm.fivenightspizzeria2" role="button" target="_blank">
-							Google Play
-						</a>
-						<a class="btn btn-dark btn-lg mt-2 icon-link icon-link-hover" href="https://play.google.com/store/apps/details?id=com.madstorm.fivenightspizzeria2" role="button" target="_blank">
-							App Store
-						</a>
-					</div>
-				</div>
-			</div>
+        <section id="portfolio" class="games-section section-pad">
+            <div class="container">
+                <h2>Deployed Titles</h2>
+                
+                <div class="games-grid">
+                    
+                    <!-- Game 1 -->
+                    <article class="game-card">
+                        <div class="game-img-wrap">
+                            <img src="https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/boBK9uNTZfLcVS3RxWG_DG?authuser=0" alt="Nights at Pizzeria gameplay screenshot showing an eerie figure in a retro diner">
+                        </div>
+                        <div class="game-content">
+                            <h3>Nights at Pizzeria</h3>
+                            <p>A survival horror game where players must fend off monster attacks until 7 am using security systems.</p>
+                            <div class="store-buttons">
+                                <a href="blob:https://55yhb7844tgv8phc5pwqev06xkjxd5d5dj5c5rsul5dzggb6lr-h955308071.scf.usercontent.goog/7a5da275-1182-4dfc-99da-266b634bc637#" class="btn-store">Google Play</a>
+                                <a href="blob:https://55yhb7844tgv8phc5pwqev06xkjxd5d5dj5c5rsul5dzggb6lr-h955308071.scf.usercontent.goog/7a5da275-1182-4dfc-99da-266b634bc637#" class="btn-store">App Store</a>
+                            </div>
+                        </div>
+                    </article>
 
+                    <!-- Game 2 -->
+                    <article class="game-card">
+                        <div class="game-img-wrap">
+                            <img src="https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/bBCijZskNp2dnxoHSluO_o?authuser=0" alt="My Rusty Car gameplay showing a first-person view driving at night in the rain">
+                        </div>
+                        <div class="game-content">
+                            <h3>My Rusty Car</h3>
+                            <p>A driving and survival simulator focused on maintaining a car and scavenging for resources on an endless journey.</p>
+                            <div class="store-buttons">
+                                <a href="blob:https://55yhb7844tgv8phc5pwqev06xkjxd5d5dj5c5rsul5dzggb6lr-h955308071.scf.usercontent.goog/7a5da275-1182-4dfc-99da-266b634bc637#" class="btn-store">Google Play</a>
+                                <a href="blob:https://55yhb7844tgv8phc5pwqev06xkjxd5d5dj5c5rsul5dzggb6lr-h955308071.scf.usercontent.goog/7a5da275-1182-4dfc-99da-266b634bc637#" class="btn-store">App Store</a>
+                            </div>
+                        </div>
+                    </article>
 
-			<div class="col-md-6 mb-3 mb-sm-4">
-				<div class="card border overflow-hidden bg-body-tertiary rounded-4 h-100">
-					<img src="img/village.jpg" class="rouded-4 card-img-top" alt="Glitch Lab logo">
-					<div class="p-3 p-sm-4">
-						<h2>My Rusty Car</h2>
-						<p>
-							A driving and survival simulator where the road is your home, and your trusty car is your only companion on an endless journey.
-							Monitor your car's condition meticulously: check the oil, coolant, and fuel levels. Scavenge for canisters along roadsides and in abandoned houses to keep moving.
-						</p>
+                    <!-- Game 3 -->
+                    <article class="game-card">
+                        <div class="game-img-wrap">
+                            <img src="https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/8vsFLw7Ov-V5eGUi0piOiz?authuser=0" alt="Ocean Raft gameplay showing a wooden cabin built on a raft with a shark nearby">
+                        </div>
+                        <div class="game-content">
+                            <h3>Ocean Raft</h3>
+                            <p>An open sandbox survival game where players build rafts, gather resources, and survive in a wildlife-filled ocean environment.</p>
+                            <div class="store-buttons">
+                                <a href="blob:https://55yhb7844tgv8phc5pwqev06xkjxd5d5dj5c5rsul5dzggb6lr-h955308071.scf.usercontent.goog/7a5da275-1182-4dfc-99da-266b634bc637#" class="btn-store">Google Play</a>
+                                <a href="blob:https://55yhb7844tgv8phc5pwqev06xkjxd5d5dj5c5rsul5dzggb6lr-h955308071.scf.usercontent.goog/7a5da275-1182-4dfc-99da-266b634bc637#" class="btn-store">App Store</a>
+                            </div>
+                        </div>
+                    </article>
 
-						<a class="btn btn-success btn-lg mt-2 icon-link icon-link-hover" href="https://play.google.com/store/apps/details?id=com.madstorm.myrustycar" role="button" target="_blank">
-							Google Play
-						</a>
-						<a class="btn btn-dark btn-lg mt-2 icon-link icon-link-hover" href="https://play.google.com/store/apps/details?id=com.MadStorm.RaftopiaSeaOdyssey" role="button" target="_blank">
-							App Store
-						</a>
-					</div>
-				</div>
-			</div>
+                    <!-- Game 4 -->
+                    <article class="game-card">
+                        <div class="game-img-wrap">
+                            <img src="https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/9l-EeM2BCYPe7YhKbpmkCf?authuser=0" data-alt="Close-up of severely peeling, damp wallpaper over cracked, brutalist concrete in a dark, abandoned room. Eerie shadows stretch across the distressed texture, illuminated by a failing, flickering flashlight beam. Gritty, suspenseful atmosphere. No text." alt="Horror Escape atmospheric texture">
+                        </div>
+                        <div class="game-content">
+                            <h3>Horror Escape</h3>
+                            <p>A horror-themed game where players explore an abandoned building after getting lost and crashing in a small village.</p>
+                            <div class="store-buttons">
+                                <a href="blob:https://55yhb7844tgv8phc5pwqev06xkjxd5d5dj5c5rsul5dzggb6lr-h955308071.scf.usercontent.goog/7a5da275-1182-4dfc-99da-266b634bc637#" class="btn-store">Google Play</a>
+                                <a href="blob:https://55yhb7844tgv8phc5pwqev06xkjxd5d5dj5c5rsul5dzggb6lr-h955308071.scf.usercontent.goog/7a5da275-1182-4dfc-99da-266b634bc637#" class="btn-store">App Store</a>
+                            </div>
+                        </div>
+                    </article>
 
+                    <!-- Game 5 (Spans 2 columns on desktop) -->
+                    <article class="game-card">
+                        <div class="game-img-wrap">
+                            <img src="https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/aXqPMMicCHZ1O1jaVzL41A?authuser=0" alt="Ocean Survival gameplay showing a stone-walled workshop interior with a furnace and tools">
+                        </div>
+                        <div class="game-content">
+                            <h3>Ocean Survival</h3>
+                            <p>A digital game focused on the challenge of surviving on a raft in the middle of the ocean. Utilize crafted tools, manage vital resources, and expand your floating sanctuary against constant threats.</p>
+                            <div class="store-buttons">
+                                <a href="blob:https://55yhb7844tgv8phc5pwqev06xkjxd5d5dj5c5rsul5dzggb6lr-h955308071.scf.usercontent.goog/7a5da275-1182-4dfc-99da-266b634bc637#" class="btn-store">Google Play</a>
+                                <a href="blob:https://55yhb7844tgv8phc5pwqev06xkjxd5d5dj5c5rsul5dzggb6lr-h955308071.scf.usercontent.goog/7a5da275-1182-4dfc-99da-266b634bc637#" class="btn-store">App Store</a>
+                            </div>
+                        </div>
+                    </article>
 
-			<div class="col-md-6 mb-3 mb-sm-4">
-				<div class="card border overflow-hidden bg-body-tertiary rounded-4 h-100">
-					<img src="img/raft.png" class="rouded-4 card-img-top" alt="Glitch Lab logo">
-					<div class="p-3 p-sm-4">
-						<h2>Ocean Raft</h2>
-						<p>
-							You are in the middle of an ocean with lonely islands, all you have to survive is a raft made of old boards and a rusty hook.
-							Raft is an open sandbox where there is no civilization, only wildlife, build a raft, get resources, fish and cook.
-						</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-						<a class="btn btn-success btn-lg mt-2 icon-link icon-link-hover" href="https://play.google.com/store/apps/details?id=com.MadStorm.RaftopiaSeaOdyssey" role="button" target="_blank">
-							Google Play
-						</a>
-						<a class="btn btn-dark btn-lg mt-2 icon-link icon-link-hover" href="https://play.google.com/store/apps/details?id=com.MadStorm.RaftopiaSeaOdyssey" role="button" target="_blank">
-							App Store
-						</a>
-					</div>
-				</div>
-			</div>
+    <footer id="contacts">
+        <div class="container footer-content">
+            <div class="contact-cta">
+                <h2>Contact Us</h2>
+                <a href="mailto:madstormone@gmail.com" class="btn btn-primary">Send Email</a>
+            </div>
 
-			<div class="col-md-6 mb-3 mb-sm-4">
-				<div class="card border overflow-hidden bg-body-tertiary rounded-4 h-100">
-					<img src="img/horror.png" class="card-img-top" alt="GIF Camera logo">
-					<div class="p-3 p-sm-4">
-						<h2>Horror Escape</h2>
-						<p>
-							You got lost in a small village when you were driving along an road, around a bend you suddenly lose control and fall down the hill.
-							You have no choice but to enter the old abandoned building.
-						</p>
+            <img src="https://labs.google.com/pomelli_downloads/websites/bg_xlkRvNDi9w3PhTLPkmu/resources/atWxeADUVuHbqWUJYXm4JR?authuser=0" alt="MadStorm Games Logo" class="footer-logo">
+            <p class="footer-text">
+                © MadStorm Games. All rights reserved.<br>
+                <a href="https://cowpoke1.github.io/index.html" target="_blank" rel="noopener noreferrer">Official Website</a>
+            </p>
+        </div>
+    </footer>
 
-						<a class="btn btn-success btn-lg mt-2 icon-link icon-link-hover" href="https://play.google.com/store/apps/details?id=com.madstorm.lastnightshorrorsurvival" role="button" target="_blank">
-							Google Play
-						</a>
-						<a class="btn btn-dark btn-lg mt-2 icon-link icon-link-hover" href="https://play.google.com/store/apps/details?id=com.MadStorm.RaftopiaSeaOdyssey" role="button" target="_blank">
-							App Store
-						</a>
-					</div>
-				</div>
-			</div>
+<div style="text-align:right;padding:16px"><a href="https://support.google.com/legal/answer/3110420" target="_blank" style="color:inherit;text-decoration:none;font-size:12px">Report legal issue</a></div><style>
+body { position: relative; }
+div.ai-image-badge {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2225%22%20height%3D%2225%22%20viewBox%3D%220%200%2025%2025%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cg%3E%0A%3Cmask%20id%3D%22path-2-inside-1_4816_19485%22%20fill%3D%22white%22%3E%0A%3Cpath%20d%3D%22M17.9651%2010.7604L16.8609%208.36458L14.4651%207.28125L16.8609%206.17708L17.9651%203.78125L19.0484%206.17708L21.4442%207.28125L19.0484%208.36458L17.9651%2010.7604ZM17.9651%2021.7604L16.8817%2019.3437L14.4651%2018.2604L16.8817%2017.1771L17.9651%2014.7604L19.0484%2017.1771L21.4651%2018.2604L19.0484%2019.3437L17.9651%2021.7604ZM10.9651%2019.2604L8.94423%2014.7812L4.46506%2012.7604L8.94423%2010.7396L10.9651%206.26042L12.9859%2010.7396L17.4651%2012.7604L12.9859%2014.7812L10.9651%2019.2604Z%22%2F%3E%0A%3C%2Fmask%3E%0A%3Cpath%20d%3D%22M17.9651%2010.7604L16.8609%208.36458L14.4651%207.28125L16.8609%206.17708L17.9651%203.78125L19.0484%206.17708L21.4442%207.28125L19.0484%208.36458L17.9651%2010.7604ZM17.9651%2021.7604L16.8817%2019.3437L14.4651%2018.2604L16.8817%2017.1771L17.9651%2014.7604L19.0484%2017.1771L21.4651%2018.2604L19.0484%2019.3437L17.9651%2021.7604ZM10.9651%2019.2604L8.94423%2014.7812L4.46506%2012.7604L8.94423%2010.7396L10.9651%206.26042L12.9859%2010.7396L17.4651%2012.7604L12.9859%2014.7812L10.9651%2019.2604Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M17.9651%2010.7604L17.511%2010.9697L17.9694%2011.9644L18.4206%2010.9664L17.9651%2010.7604ZM16.8609%208.36458L17.315%208.1553L17.2369%207.98586L17.0669%207.90899L16.8609%208.36458ZM14.4651%207.28125L14.2558%206.82715L13.2611%207.28558L14.2591%207.73684L14.4651%207.28125ZM16.8609%206.17708L17.0702%206.63118L17.2378%206.55394L17.315%206.38636L16.8609%206.17708ZM17.9651%203.78125L18.4206%203.57524L17.9694%202.57727L17.511%203.57197L17.9651%203.78125ZM19.0484%206.17708L18.5928%206.38309L18.6697%206.55309L18.8391%206.63118L19.0484%206.17708ZM21.4442%207.28125L21.6502%207.73684L22.6482%207.28558L21.6535%206.82715L21.4442%207.28125ZM19.0484%208.36458L18.8424%207.90899L18.6705%207.98671L18.5928%208.15858L19.0484%208.36458ZM17.9651%2021.7604L17.5088%2021.9649L17.9651%2022.9827L18.4213%2021.9649L17.9651%2021.7604ZM16.8817%2019.3438L17.338%2019.1392L17.2601%2018.9654L17.0863%2018.8875L16.8817%2019.3438ZM14.4651%2018.2604L14.2605%2017.8042L13.2427%2018.2604L14.2605%2018.7167L14.4651%2018.2604ZM16.8817%2017.1771L17.0863%2017.6333L17.2601%2017.5554L17.338%2017.3816L16.8817%2017.1771ZM17.9651%2014.7604L18.4213%2014.5559L17.9651%2013.5381L17.5088%2014.5559L17.9651%2014.7604ZM19.0484%2017.1771L18.5921%2017.3816L18.6701%2017.5554L18.8439%2017.6333L19.0484%2017.1771ZM21.4651%2018.2604L21.6696%2018.7167L22.6874%2018.2604L21.6696%2017.8042L21.4651%2018.2604ZM19.0484%2019.3438L18.8439%2018.8875L18.6701%2018.9654L18.5921%2019.1392L19.0484%2019.3438ZM10.9651%2019.2604L10.5093%2019.466L10.9651%2020.4762L11.4208%2019.466L10.9651%2019.2604ZM8.94423%2014.7812L9.39999%2014.5756L9.32222%2014.4033L9.14985%2014.3255L8.94423%2014.7812ZM4.46506%2012.7604L4.25944%2012.3047L3.24924%2012.7604L4.25944%2013.2162L4.46506%2012.7604ZM8.94423%2010.7396L9.14985%2011.1953L9.32222%2011.1176L9.39999%2010.9452L8.94423%2010.7396ZM10.9651%206.26042L11.4208%206.05479L10.9651%205.0446L10.5093%206.05479L10.9651%206.26042ZM12.9859%2010.7396L12.5301%2010.9452L12.6079%2011.1176L12.7803%2011.1953L12.9859%2010.7396ZM17.4651%2012.7604L17.6707%2013.2162L18.6809%2012.7604L17.6707%2012.3047L17.4651%2012.7604ZM12.9859%2014.7812L12.7803%2014.3255L12.6079%2014.4033L12.5301%2014.5756L12.9859%2014.7812ZM17.9651%2010.7604L18.4192%2010.5511L17.315%208.1553L16.8609%208.36458L16.4068%208.57386L17.511%2010.9697L17.9651%2010.7604ZM16.8609%208.36458L17.0669%207.90899L14.6711%206.82566L14.4651%207.28125L14.2591%207.73684L16.6549%208.82017L16.8609%208.36458ZM14.4651%207.28125L14.6743%207.73534L17.0702%206.63118L16.8609%206.17708L16.6516%205.72299L14.2558%206.82715L14.4651%207.28125ZM16.8609%206.17708L17.315%206.38636L18.4192%203.99053L17.9651%203.78125L17.511%203.57197L16.4068%205.9678L16.8609%206.17708ZM17.9651%203.78125L17.5095%203.98726L18.5928%206.38309L19.0484%206.17708L19.504%205.97108L18.4206%203.57524L17.9651%203.78125ZM19.0484%206.17708L18.8391%206.63118L21.2349%207.73534L21.4442%207.28125L21.6535%206.82715L19.2577%205.72299L19.0484%206.17708ZM21.4442%207.28125L21.2382%206.82566L18.8424%207.90899L19.0484%208.36458L19.2544%208.82017L21.6502%207.73684L21.4442%207.28125ZM19.0484%208.36458L18.5928%208.15858L17.5095%2010.5544L17.9651%2010.7604L18.4206%2010.9664L19.504%208.57059L19.0484%208.36458ZM17.9651%2021.7604L18.4213%2021.5559L17.338%2019.1392L16.8817%2019.3438L16.4255%2019.5483L17.5088%2021.9649L17.9651%2021.7604ZM16.8817%2019.3438L17.0863%2018.8875L14.6696%2017.8042L14.4651%2018.2604L14.2605%2018.7167L16.6772%2019.8L16.8817%2019.3438ZM14.4651%2018.2604L14.6696%2018.7167L17.0863%2017.6333L16.8817%2017.1771L16.6772%2016.7208L14.2605%2017.8042L14.4651%2018.2604ZM16.8817%2017.1771L17.338%2017.3816L18.4213%2014.9649L17.9651%2014.7604L17.5088%2014.5559L16.4255%2016.9726L16.8817%2017.1771ZM17.9651%2014.7604L17.5088%2014.9649L18.5921%2017.3816L19.0484%2017.1771L19.5046%2016.9726L18.4213%2014.5559L17.9651%2014.7604ZM19.0484%2017.1771L18.8439%2017.6333L21.2605%2018.7167L21.4651%2018.2604L21.6696%2017.8042L19.2529%2016.7208L19.0484%2017.1771ZM21.4651%2018.2604L21.2605%2017.8042L18.8439%2018.8875L19.0484%2019.3438L19.2529%2019.8L21.6696%2018.7167L21.4651%2018.2604ZM19.0484%2019.3438L18.5921%2019.1392L17.5088%2021.5559L17.9651%2021.7604L18.4213%2021.9649L19.5046%2019.5483L19.0484%2019.3438ZM10.9651%2019.2604L11.4208%2019.0548L9.39999%2014.5756L8.94423%2014.7812L8.48846%2014.9869L10.5093%2019.466L10.9651%2019.2604ZM8.94423%2014.7812L9.14985%2014.3255L4.67068%2012.3047L4.46506%2012.7604L4.25944%2013.2162L8.7386%2015.237L8.94423%2014.7812ZM4.46506%2012.7604L4.67068%2013.2162L9.14985%2011.1953L8.94423%2010.7396L8.7386%2010.2838L4.25944%2012.3047L4.46506%2012.7604ZM8.94423%2010.7396L9.39999%2010.9452L11.4208%206.46604L10.9651%206.26042L10.5093%206.05479L8.48846%2010.534L8.94423%2010.7396ZM10.9651%206.26042L10.5093%206.46604L12.5301%2010.9452L12.9859%2010.7396L13.4417%2010.534L11.4208%206.05479L10.9651%206.26042ZM12.9859%2010.7396L12.7803%2011.1953L17.2594%2013.2162L17.4651%2012.7604L17.6707%2012.3047L13.1915%2010.2838L12.9859%2010.7396ZM17.4651%2012.7604L17.2594%2012.3047L12.7803%2014.3255L12.9859%2014.7812L13.1915%2015.237L17.6707%2013.2162L17.4651%2012.7604ZM12.9859%2014.7812L12.5301%2014.5756L10.5093%2019.0548L10.9651%2019.2604L11.4208%2019.466L13.4417%2014.9869L12.9859%2014.7812Z%22%20fill%3D%22%23DDDDDD%22%20mask%3D%22url(%23path-2-inside-1_4816_19485)%22%2F%3E%0A%3C%2Fg%3E%0A%3Cdefs%3E%0A%3C%2Fdefs%3E%0A%3C%2Fsvg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 200;
+}
+</style><script>
+(function() {
+  var selector = "img[src*=\"8WzXeLJX6tb4het_O94k2i\"],[style*=\"8WzXeLJX6tb4het_O94k2i\"],img[src*=\"9l-EeM2BCYPe7YhKbpmkCf\"],[style*=\"9l-EeM2BCYPe7YhKbpmkCf\"],img[src*=\"aKn23rErXf2eqH1zeI6kgL\"],[style*=\"aKn23rErXf2eqH1zeI6kgL\"]";
+  if (!selector) return;
+  const targets = document.querySelectorAll(selector);
+  if (!targets.length) return;
 
-			<div class="col-md-6 mb-3 mb-sm-4">
-				<div class="card border overflow-hidden bg-body-tertiary rounded-4 h-100">
-					<img src="img/ocean.jpg" class="card-img-top" alt="Geometry Runner logo">
-					<div class="p-3 p-sm-4">
-						<h2>Ocean Survival</h2>
-						<p>You survive on a raft in the middle of the ocean!</p>
+  const pairs = [];
+  targets.forEach(function(target) {
+    const badge = document.createElement('div');
+    badge.className = 'ai-image-badge';
+    document.body.appendChild(badge);
+    pairs.push({ target: target, badge: badge });
+  });
 
-						<a class="btn btn-success btn-lg mt-2 icon-link icon-link-hover" href="https://play.google.com/store/apps/details?id=com.MadStorm.RaftopiaSeaOdyssey" role="button" target="_blank">
-							Google Play
-						</a>
-						<a class="btn btn-dark btn-lg mt-2 icon-link icon-link-hover" href="https://play.google.com/store/apps/details?id=com.MadStorm.RaftopiaSeaOdyssey" role="button" target="_blank">
-							App Store
-						</a>
-					</div>
-				</div>
-			</div>
+  function position() {
+    const bodyRect = document.body.getBoundingClientRect();
+    const bodyTop = bodyRect.top + document.body.clientTop;
+    const bodyLeft = bodyRect.left + document.body.clientLeft;
+    pairs.forEach(function({target, badge}) {
+      const rect = target.getBoundingClientRect();
+      badge.style.top = (rect.bottom - bodyTop - 25 - 8) + 'px';
+      badge.style.left = (rect.right - bodyLeft - 25 - 8) + 'px';
+    });
+  }
 
-
-
-		</div>
-					<!-- Footer -->
-					<footer class="text-center text-secondary border-top pt-3">
-						<ul class="list-unstyled">
-							<li class="mb-3">&copy; 2023 MAD STORM</li>
-							<li class="mb-3">
-								<a class="nav-link" href="privacy.html">Privacy &amp; Terms</a>
-							</li>
-						</ul>
-					</footer>
-				</div>
-</body>
-</html>
+  new ResizeObserver(position).observe(document.body);
+  position();
+})();
+</script><div class="ai-image-badge" style="top: 1141.5px; left: 3392px;"></div><div class="ai-image-badge" style="top: 1747px; left: 3392px;"></div><div class="ai-image-badge" style="top: 2808.52px; left: 2254.5px;"></div>
+</body></html>

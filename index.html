@@ -29,7 +29,7 @@
             
             /* Layout */
             --header-height: 80px;
-            --container-w: 1200px;
+            --container-w: 1500px;
             --spacing-lg: 6rem;
             --spacing-md: 3rem;
             --spacing-sm: 1.5rem;
@@ -153,9 +153,10 @@
             left: 0;
             width: 100%;
             height: var(--header-height);
-            background-color: rgba(33, 37, 41, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--c-grid-line);
+            background-color: rgba(20, 20, 25, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             z-index: 300;
             display: flex;
             align-items: center;
@@ -326,7 +327,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(33, 37, 41, 0.95) 0%, rgba(33, 37, 41, 0.4) 100%);
+            background: linear-gradient(to right, rgba(20, 20, 25, 0.6) 0%, rgba(20, 20, 25, 0.2) 100%);
             z-index: 2;
         }
 
@@ -334,14 +335,21 @@
             position: relative;
             z-index: 10;
             max-width: 800px;
+            background: rgba(20, 20, 25, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
 
         .hero-desc {
             font-size: 1.25rem;
-            color: var(--c-text-muted);
+            color: rgba(255,255,255,0.8);
             margin-bottom: var(--spacing-md);
-            border-left: 2px solid var(--c-green);
-            padding-left: 1rem;
+            border-left: 3px solid var(--c-blue);
+            padding-left: 1.5rem;
         }
 
         /* Core Values / Mechanics */
@@ -392,28 +400,28 @@
         .values-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--c-grid-line);
+            gap: 1.5rem;
         }
 
         .value-card {
-            background-color: rgba(33, 37, 41, 0.85);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+            background: rgba(20, 20, 25, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
             padding: var(--spacing-md) var(--spacing-sm);
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
 
         .value-card:hover {
-            background-color: rgba(33, 37, 41, 0.95);
             transform: translateY(-5px);
-            z-index: 2;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border-bottom: 2px solid var(--c-blue);
+            border-color: rgba(255,255,255,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 15px rgba(13, 110, 253, 0.2);
+            background: rgba(20, 20, 25, 0.6);
         }
 
         .value-num {
@@ -441,102 +449,126 @@
         }
 
         .game-card {
-            background-color: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--c-grid-line);
+            position: relative;
             display: flex;
             flex-direction: column;
-            position: relative;
+            justify-content: flex-end;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            padding-top: 75%;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 15px rgba(13, 110, 253, 0.2);
         }
 
         .game-img-wrap {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-            background-color: #000;
-        }
-
-        .game-img-wrap img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            z-index: 1;
+        }
+
+        .game-img-wrap img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .game-card:hover .game-img-wrap img {
+            transform: scale(1.05);
+        }
+        
+        .game-img-wrap::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
+            z-index: 2;
         }
 
         .game-content {
-            padding: var(--spacing-sm);
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            right: 1rem;
+            z-index: 3;
+            background: rgba(20, 20, 25, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.2rem;
             display: flex;
             flex-direction: column;
-            flex-grow: 1;
+            gap: 0.5rem;
         }
 
         .game-content h3 {
             color: var(--c-white);
-            margin-bottom: 0.5rem;
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .game-content p {
-            color: var(--c-text-muted);
-            margin-bottom: 0;
-            flex-grow: 1;
+            color: rgba(255,255,255,0.7);
+            margin: 0;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
-        /* App Store Buttons */
         .store-buttons {
             display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
-            width: 100%;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
         }
 
         .btn-store {
-            flex: 1;
-            display: inline-block;
-            background-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
             color: var(--c-white);
-            padding: 0.5rem;
-            border: 1px solid var(--c-grid-line);
-            text-transform: uppercase;
-            font-weight: 700;
-            font-size: 0.75rem;
-            letter-spacing: 0.5px;
-            text-align: center;
-            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .btn-store:hover {
-            background-color: var(--c-blue);
+            background: var(--c-blue);
+            color: #fff;
+            transform: scale(1.1);
             border-color: var(--c-blue);
-            color: var(--c-white);
-        }
-
-        /* Desktop Grid Layout for Games to avoid orphans */
-        @media (min-width: 768px) {
-            .games-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .game-card:nth-child(5) {
-                grid-column: span 2;
-                flex-direction: row;
-            }
-            .game-card:nth-child(5) .game-img-wrap {
-                width: 60%;
-                padding-top: 0;
-            }
-            .game-card:nth-child(5) .game-content {
-                width: 40%;
-                justify-content: center;
-                padding: var(--spacing-md);
-            }
+            box-shadow: 0 0 15px rgba(13, 110, 253, 0.6);
         }
 
         /* Footer */
         footer {
-            background-color: #121416;
-            border-top: 1px solid var(--c-grid-line);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding: var(--spacing-lg) 0 var(--spacing-md) 0;
             text-align: center;
+            background: rgba(20, 20, 25, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .footer-content {
@@ -547,15 +579,20 @@
         }
 
         .contact-cta {
+            background: rgba(20, 20, 25, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 3rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 1.5rem;
-            margin-bottom: var(--spacing-md);
-            padding-bottom: var(--spacing-md);
-            border-bottom: 1px solid var(--c-grid-line);
+            margin-bottom: var(--spacing-lg);
             width: 100%;
-            max-width: 400px;
+            max-width: 500px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
 
         .contact-cta h2 {
@@ -575,7 +612,9 @@
             font-size: 0.9rem;
         }
 
-        /* Mobile Adjustments */
+        @media (min-width: 768px) { .games-grid { grid-template-columns: repeat(2, 1fr); } }
+
+          /* Mobile Adjustments */
         @media (max-width: 991px) {
             header { height: auto; padding: 15px 0; }
             .header-content { flex-direction: column; gap: 15px; }
@@ -586,17 +625,9 @@
                 align-items: flex-start;
                 padding-top: var(--spacing-lg);
             }
-            .game-card:nth-child(5) {
-                flex-direction: column;
-            }
-            .game-card:nth-child(5) .game-img-wrap {
-                width: 100%;
-                padding-top: 56.25%;
-            }
-            .game-card:nth-child(5) .game-content {
-                width: 100%;
-                padding: var(--spacing-sm);
-            }
+            
+            
+            
         }
     </style>
 </head>
@@ -684,8 +715,8 @@
                             <h3>Redwood Falls</h3>
                             <p>A gripping survival experience set in the mysterious Redwood Falls. Navigate the wilderness and survive the night.</p>
                             <div class="store-buttons">
-                                <a href="https://play.google.com/store/apps/details?id=com.madstorm.redwoodfalls" class="btn-store">Google Play</a>
-                                <a href="https://apps.apple.com/gh/app/redwood-falls-1984/id6781988587" class="btn-store">App Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.madstorm.redwoodfalls" class="btn-store"><i class="fa-brands fa-google-play"></i></a>
+                                <a href="https://apps.apple.com/gh/app/redwood-falls-1984/id6781988587" class="btn-store"><i class="fa-brands fa-apple"></i></a>
                             </div>
                         </div>
                     </article>
@@ -697,8 +728,8 @@
                             <h3>My Rusty Car</h3>
                             <p>A driving and survival simulator focused on maintaining a car and scavenging for resources on an endless journey.</p>
                             <div class="store-buttons">
-                                <a href="https://play.google.com/store/apps/details?id=com.madstorm.myrustycar" class="btn-store">Google Play</a>
-                                <a href="https://apps.apple.com/gh/app/my-rusty-car/id6753999887" class="btn-store">App Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.madstorm.myrustycar" class="btn-store"><i class="fa-brands fa-google-play"></i></a>
+                                <a href="https://apps.apple.com/gh/app/my-rusty-car/id6753999887" class="btn-store"><i class="fa-brands fa-apple"></i></a>
                             </div>
                         </div>
                     </article>
@@ -710,8 +741,8 @@
                             <h3>Ocean Raft</h3>
                             <p>An open sandbox survival game where players build rafts, gather resources, and survive in a wildlife-filled ocean environment.</p>
                             <div class="store-buttons">
-                                <a href="https://play.google.com/store/apps/details?id=com.MadStorm.RaftopiaSeaOdyssey" class="btn-store">Google Play</a>
-                                <a href="https://apps.apple.com/gh/app/ocean-evolve-survival/id1372241872" class="btn-store">App Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.MadStorm.RaftopiaSeaOdyssey" class="btn-store"><i class="fa-brands fa-google-play"></i></a>
+                                <a href="https://apps.apple.com/gh/app/ocean-evolve-survival/id1372241872" class="btn-store"><i class="fa-brands fa-apple"></i></a>
                             </div>
                         </div>
                     </article>
@@ -723,8 +754,8 @@
                             <h3>Horror Escape</h3>
                             <p>A horror-themed game where players explore an abandoned building after getting lost and crashing in a small village.</p>
                             <div class="store-buttons">
-                                <a href="https://play.google.com/store/apps/details?id=com.madstorm.lastnightshorrorsurvival" class="btn-store">Google Play</a>
-                                <a href="#" class="btn-store">App Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.madstorm.lastnightshorrorsurvival" class="btn-store"><i class="fa-brands fa-google-play"></i></a>
+                                <a href="#" class="btn-store"><i class="fa-brands fa-apple"></i></a>
                             </div>
                         </div>
                     </article>
@@ -736,8 +767,8 @@
                             <h3>Ocean Survival</h3>
                             <p>A digital game focused on the challenge of surviving on a raft in the middle of the ocean. Utilize crafted tools, manage vital resources, and expand your floating sanctuary against constant threats.</p>
                             <div class="store-buttons">
-                                <a href="https://play.google.com/store/apps/details?id=com.MadStorm.RaftopiaSeaOdyssey" class="btn-store">Google Play</a>
-                                <a href="https://apps.apple.com/gh/app/ocean-survival-reborn/id1673396926" class="btn-store">App Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.MadStorm.RaftopiaSeaOdyssey" class="btn-store"><i class="fa-brands fa-google-play"></i></a>
+                                <a href="https://apps.apple.com/gh/app/ocean-survival-reborn/id1673396926" class="btn-store"><i class="fa-brands fa-apple"></i></a>
                             </div>
                         </div>
                     </article>
@@ -749,8 +780,8 @@
                             <h3>Nights at Pizzeria</h3>
                             <p>A survival horror game where players must fend off monster attacks until 7 am using security systems.</p>
                             <div class="store-buttons">
-                                <a href="https://play.google.com/store/apps/details?id=com.madstorm.fivenightsatpizzeria" class="btn-store">Google Play</a>
-                                <a href="https://apps.apple.com/gh/app/last-nights-at-horror/id1487825395" class="btn-store">App Store</a>
+                                <a href="https://play.google.com/store/apps/details?id=com.madstorm.fivenightsatpizzeria" class="btn-store"><i class="fa-brands fa-google-play"></i></a>
+                                <a href="https://apps.apple.com/gh/app/last-nights-at-horror/id1487825395" class="btn-store"><i class="fa-brands fa-apple"></i></a>
                             </div>
                         </div>
                     </article>

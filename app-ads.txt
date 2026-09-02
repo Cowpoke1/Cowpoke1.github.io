@@ -1,1 +1,1 @@
-LOAD_FROM_PYTHON_PATH_/workspace/app-ads.txt
+vidazoo.com, 6a3384a48eca8f6ddad62520, RESELLER, b6ada874b4d7d0b2

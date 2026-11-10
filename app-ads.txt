@@ -2630,3 +2630,4 @@ bold-win.com, 1189, RESELLER, 71746737d0bab951
 bold-win.com, 1013, RESELLER, 71746737d0bab951
 e-planning.net, 79ded3cfca3d3b78, RESELLER, c1ba615865ed87b2
 e-planning.net, 6a7f877127485fdb, RESELLER, c1ba615865ed87b2
+playdigo.com, 1965, RESELLER
